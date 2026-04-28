@@ -1,146 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>S3D Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-body {
+/* GENERAL */
+
+body{
 margin:0;
-font-family: Arial, sans-serif;
+font-family:'Poppins',sans-serif;
+background:#0a0a0a;
+color:white;
+scroll-behavior:smooth;
 }
 
 /* HEADER */
 
-header {
-background:black;
-color:white;
-display:flex;
-align-items:center;
-padding:10px 20px;
-}
-
-header img {
-height:50px;
-margin-right:10px;
-}
-
-/* HERO SECTION */
-
-.hero {
-background:url('automation-bg.jpg') center/cover no-repeat;
-height:420px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-align:center;
-}
-
-.hero h1 {
-background:rgba(0,0,0,0.6);
-padding:20px;
-border-radius:8px;
-font-size:32px;
-}
-
-/* ABOUT SECTION WITH BACKGROUND IMAGE */
-
-.about-section {
-background:url('about-bg.jpg') center/cover no-repeat;
-padding:60px 20px;
-text-align:center;
-color:white;
-position:relative;
-}
-
-/* Dark overlay */
-
-.about-section::before {
-content:"";
-position:absolute;
+header{
+position:fixed;
+width:100%;
 top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:1000;
 }
 
-.about-content {
-position:relative;
-z-index:2;
-max-width:800px;
-margin:auto;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
+font-weight:600;
 }
 
-/* GENERAL SECTIONS */
+.logo img{
+height:40px;
+}
 
-.section {
-padding:40px 20px;
+/* NAVIGATION */
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:cyan;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
+background:url("about-bg.jpg") center/cover no-repeat;
+perspective:1000px;
+}
+
+.hero-content{
+transform:rotateX(5deg);
+transition:0.5s;
+}
+
+.hero-content:hover{
+transform:rotateX(0deg) rotateY(5deg);
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+text-shadow:0 0 20px cyan;
+}
+
+.hero p{
+font-size:20px;
+color:#ccc;
 }
 
 /* SERVICES */
 
-.services {
+.services{
+padding:100px 40px;
+text-align:center;
+}
+
+.services h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.service-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
-.service-box {
-background:#f4f4f4;
-padding:20px;
-border-radius:10px;
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+padding:30px;
+transition:0.4s;
+transform-style:preserve-3d;
+backdrop-filter:blur(10px);
 }
 
-/* PROJECT IMAGE */
+.card:hover{
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+box-shadow:0 0 30px cyan;
+}
 
-.projects img {
-width:100%;
-max-width:600px;
+.card h3{
+margin-bottom:15px;
+color:cyan;
+}
+
+/* PARALLAX */
+
+.parallax{
+height:400px;
+background:url("automation-bg.jpg") center/cover fixed;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.parallax h2{
+font-size:40px;
+background:rgba(0,0,0,0.6);
+padding:20px 40px;
 border-radius:10px;
 }
 
 /* VIDEO */
 
-video {
+.video-section{
+padding:100px 40px;
+text-align:center;
+}
+
+.video-container{
+max-width:900px;
+margin:auto;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 40px cyan;
+transform:perspective(1000px) rotateX(5deg);
+transition:0.4s;
+}
+
+.video-container:hover{
+transform:perspective(1000px) rotateX(0deg);
+}
+
+video{
 width:100%;
-max-width:600px;
-border-radius:10px;
 }
 
 /* CONTACT */
 
-.contact-box {
-background:#f4f4f4;
-padding:25px;
-border-radius:10px;
-max-width:600px;
-margin:auto;
+.contact{
+padding:100px 40px;
+text-align:center;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+max-width:500px;
+margin:10px auto;
+padding:12px;
+border:none;
+border-radius:8px;
+}
+
+.contact button{
+padding:12px 30px;
+background:cyan;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+z-index:999;
 }
 
 /* FOOTER */
 
-footer {
+footer{
 background:black;
-color:white;
-padding:20px;
 text-align:center;
+padding:20px;
+color:#aaa;
 }
 
-/* WHATSAPP */
+/* MOBILE */
 
-.whatsapp {
-position:fixed;
-bottom:20px;
-right:20px;
+@media(max-width:768px){
+
+nav{
+display:none;
+flex-direction:column;
+background:black;
+position:absolute;
+top:70px;
+right:0;
+width:200px;
+padding:20px;
 }
 
-.whatsapp img {
-width:60px;
+nav.show{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.hero h1{
+font-size:32px;
+}
+
 }
 
 </style>
@@ -152,136 +275,174 @@ width:60px;
 <!-- HEADER -->
 
 <header>
-<img src="logo.png" />
-<h2>S3D Solutions</h2>
+
+<div class="logo">
+<img src="logo.png">
+S3D Solutions
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
 </header>
 
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero" id="home">
+
+<div class="hero-content">
+
 <h1>
 Leading Solutions in  
 Home Automation & Security
 </h1>
-</div>
-
-<!-- ABOUT WITH BACKGROUND -->
-
-<div class="about-section">
-
-<div class="about-content">
-
-<h2>About Us</h2>
 
 <p>
-Welcome to S3D Solutions, your trusted partner
-in Home Automation, CCTV Surveillance,
-Lighting Automation, Home Theater
-and Smart Interior Solutions.
+Smart Living | Smart Security | Smart Theatre
 </p>
 
 </div>
 
-</div>
+</section>
 
 <!-- SERVICES -->
 
-<div class="section">
+<section class="services" id="services">
 
 <h2>Our Services</h2>
 
-<div class="services">
+<div class="service-grid">
 
-<div class="service-box">
+<div class="card">
 <h3>Home Automation</h3>
+<p>Control lights, fans and appliances smartly.</p>
 </div>
 
-<div class="service-box">
+<div class="card">
 <h3>CCTV Surveillance</h3>
+<p>Secure your home with smart cameras.</p>
 </div>
 
-<div class="service-box">
-<h3>Home Theater</h3>
+<div class="card">
+<h3>Home Theatre</h3>
+<p>Premium cinema experience at home.</p>
 </div>
 
-<div class="service-box">
+<div class="card">
 <h3>Lighting Automation</h3>
-</div>
-
-<div class="service-box">
-<h3>Gate Automation</h3>
-</div>
-
-<div class="service-box">
-<h3>Interior Solutions</h3>
+<p>Modern lighting with smart scenes.</p>
 </div>
 
 </div>
 
-</div>
+</section>
 
-<!-- PROJECTS -->
+<!-- PARALLAX -->
 
-<div class="section projects">
+<section class="parallax">
 
-<h2>Our Projects</h2>
+<h2>
+Smart Technology for Smart Homes
+</h2>
 
-<br>
+</section>
 
 <!-- VIDEO -->
 
+<section class="video-section" id="projects">
+
+<h2>Our Projects</h2>
+
+<div class="video-container">
+
 <video controls>
 
-<source src="your-video.mp4.mp4" type="video/mp4" />
-
-Your browser does not support the video tag.
+<source src="project-video.mp4" type="video/mp4">
 
 </video>
 
 </div>
 
+</section>
+
 <!-- CONTACT -->
 
-<div class="section">
+<section class="contact" id="contact">
 
 <h2>Contact Us</h2>
 
-<div class="contact-box">
+<input type="text" placeholder="Your Name">
 
-<p>
-📍 A/185, Sector-15,  
-Koparkhairane, Navi Mumbai
-</p>
+<input type="email" placeholder="Your Email">
 
-<p>
-📞 9594392270  
-📞 9537461591  
-📞 8356803635
-</p>
+<textarea rows="4" placeholder="Message"></textarea>
 
-</div>
+<br>
 
-</div>
+<button>Send Message</button>
+
+</section>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/919594392270" class="whatsapp">
+
+💬
+
+</a>
 
 <!-- FOOTER -->
 
 <footer>
 
-<p>
-© 2026 S3D Solutions
-</p>
+© 2026 S3D Solutions  
+All Rights Reserved
 
 </footer>
 
-<!-- WHATSAPP -->
+<script>
 
-<a class="whatsapp"
-href="https://wa.me/919594392270"
-target="_blank">
+/* MOBILE MENU */
 
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" />
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("show");
+}
 
-</a>
+/* 3D CARD TILT */
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+let x=e.offsetX;
+let y=e.offsetY;
+
+let rotateY=(x/card.offsetWidth-0.5)*20;
+let rotateX=(y/card.offsetHeight-0.5)*-20;
+
+card.style.transform=
+`rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="rotateY(0) rotateX(0)";
+
+});
+
+});
+
+</script>
 
 </body>
+
 </html>
