@@ -28,32 +28,33 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 10px 20px;
   z-index: 1000;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 22px;
+  gap: 8px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .logo img {
-  height: 40px;
+  height: 30px;
 }
 
 /* NAV */
 nav {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 14px;
 }
 
 nav a:hover {
@@ -62,7 +63,7 @@ nav a:hover {
 
 .menu-toggle {
   display: none;
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
 }
 
@@ -73,6 +74,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
     url("smart-home-bg.jpg");
   background-size: cover;
@@ -80,75 +82,97 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 28px;
+  line-height: 1.4;
+  margin: 0 0 15px;
   text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 14px;
   color: #ccc;
 }
 
 /* SERVICES */
 .services {
-  padding: 80px 30px;
+  padding: 60px 20px;
   text-align: center;
+}
+
+.services h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 15px;
+  padding: 20px;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px cyan;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px cyan;
 }
 
 .card h3 {
   color: cyan;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-/* VIDEO */
+/* PROJECTS */
 .video-section {
-  padding: 80px 30px;
+  padding: 60px 20px;
   text-align: center;
 }
 
+.video-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 .video-container {
-  max-width: 900px;
+  max-width: 100%;
   margin: auto;
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 30px cyan;
+  box-shadow: 0 0 20px cyan;
 }
 
 video {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* CONTACT */
 .contact {
-  padding: 80px 30px;
+  padding: 60px 20px;
   text-align: center;
+}
+
+.contact h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .contact input,
 .contact textarea {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   margin: 10px auto;
   padding: 12px;
   border: none;
   border-radius: 8px;
+  font-size: 14px;
 }
 
 .contact button {
@@ -158,6 +182,8 @@ video {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
 /* WHATSAPP FLOAT */
@@ -171,27 +197,33 @@ video {
   padding: 15px;
   border-radius: 50%;
   text-decoration: none;
+  box-shadow: 0 0 10px #25D366;
 }
 
 /* FOOTER */
 footer {
   background: black;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
+  font-size: 14px;
   color: #aaa;
 }
 
-/* MOBILE */
+/* MOBILE STYLES */
 @media(max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+
   nav {
     display: none;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.95);
     position: absolute;
-    top: 70px;
-    right: 0;
-    width: 200px;
-    padding: 20px;
+    top: 50px;
+    right: 15px;
+    width: 180px;
+    padding: 10px 15px;
     border-radius: 8px;
   }
 
@@ -203,10 +235,33 @@ footer {
     display: block;
   }
 
-  /* Make sure nav links are block level and visible */
   nav a {
     display: block;
     margin: 10px 0;
+    font-size: 14px;
+  }
+
+  /* Adjust hero font size for small screens */
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  /* Slightly reduce padding and font sizes for smaller screens */
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .contact input,
+  .contact textarea {
+    font-size: 14px;
+  }
+
+  .contact button {
+    font-size: 14px;
   }
 }
 </style>
